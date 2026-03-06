@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+*.pyo
+uploads/
+predictions/
+output/
+.git/
+.gitignore
+*.md
+videos/
+test_*.html
+upload_page.html
+new.py
+app.py
