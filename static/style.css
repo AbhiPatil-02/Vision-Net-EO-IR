@@ -533,6 +533,310 @@ a {
   border-top: 1px solid var(--border-color);
 }
 
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.footer-sep {
+  color: var(--border-color);
+  margin: 0 2px;
+}
+
+.footer-content a {
+  color: var(--accent);
+  font-weight: 500;
+  transition: color var(--transition);
+}
+
+.footer-content a:hover {
+  color: var(--accent-hover);
+}
+
+/* =========================================
+   HACKATHON SHOWCASE SECTION
+   ========================================= */
+.hackathon-section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+  border-top: 2px solid var(--accent);
+}
+
+.hackathon-header {
+  text-align: center;
+  padding-top: 60px;
+  margin-bottom: 40px;
+}
+
+.hackathon-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(59, 130, 246, 0.1));
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: var(--accent);
+  padding: 8px 20px;
+  border-radius: 24px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+}
+
+.hackathon-header h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.hackathon-tagline {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Story */
+.hackathon-story {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  margin-bottom: 24px;
+  transition: border-color var(--transition);
+}
+
+.hackathon-story:hover {
+  border-color: var(--text-muted);
+}
+
+.story-content h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+
+.story-content p {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 10px;
+}
+
+.story-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Highlights */
+.hackathon-highlights {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 28px 28px;
+  margin-bottom: 24px;
+}
+
+.hackathon-highlights h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+}
+
+.hackathon-highlights ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.hackathon-highlights li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.hl-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--accent-glow);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* Achievement */
+.hackathon-achievement {
+  position: relative;
+  background: linear-gradient(135deg, #0b1120 0%, #132a2e 100%);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  border-radius: var(--radius-lg);
+  padding: 28px 28px;
+  margin-bottom: 32px;
+  overflow: hidden;
+}
+
+.achievement-glow {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.achievement-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.achievement-medal {
+  font-size: 2.4rem;
+  flex-shrink: 0;
+}
+
+.achievement-content h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.achievement-content p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Gallery */
+.hackathon-gallery {
+  margin-bottom: 32px;
+}
+
+.hackathon-gallery h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.gallery-item {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  aspect-ratio: 4 / 3;
+}
+
+.gallery-item:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(16, 185, 129, 0.2);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Links */
+.hackathon-links {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 26px;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition);
+  flex: 1;
+  justify-content: center;
+  min-width: 200px;
+}
+
+.link-icon {
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.link-arrow {
+  margin-left: auto;
+  font-size: 1rem;
+  opacity: 0.6;
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.link-btn:hover .link-arrow {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+.link-github {
+  background: #161b22;
+  color: #f0f6fc;
+  border: 1px solid #30363d;
+}
+
+.link-github:hover {
+  background: #1c2128;
+  border-color: #484f58;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.link-linkedin {
+  background: #0a3069;
+  color: #c8e1ff;
+  border: 1px solid #0d419d;
+}
+
+.link-linkedin:hover {
+  background: #0d419d;
+  border-color: #388bfd;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(56, 139, 253, 0.2);
+}
+
 /* ---------- Utilities ---------- */
 .sr-only {
   position: absolute;
@@ -569,4 +873,30 @@ a {
   .results-grid {
     grid-template-columns: 1fr;
   }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hackathon-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .hackathon-links {
+    flex-direction: column;
+  }
+
+  .link-btn {
+    min-width: unset;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .footer-sep {
+    display: none;
+  }
 }
+
