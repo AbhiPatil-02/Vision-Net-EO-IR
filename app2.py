@@ -1,6 +1,8 @@
 import os
 import shutil
 import mimetypes
+import time
+import tempfile
 from flask import Flask, request, render_template, send_from_directory
 from werkzeug.utils import secure_filename
 from ultralytics import YOLO
@@ -8,13 +10,38 @@ from PIL import Image as PILImage
 import cv2
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = 'uploads'
-app.config['PREDICTION_FOLDER'] = 'predictions'
+
+# Use OS temp directory for uploads and predictions (cloud-safe)
+_tmp_base = os.path.join(tempfile.gettempdir(), 'vision-net')
+app.config['UPLOAD_FOLDER'] = os.path.join(_tmp_base, 'uploads')
+app.config['PREDICTION_FOLDER'] = os.path.join(_tmp_base, 'predictions')
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'mp4', 'mov', 'avi'}
+
+# Cleanup threshold in seconds (30 minutes)
+CLEANUP_AGE_SECONDS = 30 * 60
 
 # Load YOLO model
 model_path = os.path.join(os.path.dirname(__file__), "model", "weights", "best_13.pt")
 model = YOLO(model_path)
+
+
+def cleanup_old_files():
+    """Remove uploaded and predicted files older than CLEANUP_AGE_SECONDS."""
+    now = time.time()
+    for folder in [app.config['UPLOAD_FOLDER'], app.config['PREDICTION_FOLDER']]:
+        if not os.path.exists(folder):
+            continue
+        for entry in os.listdir(folder):
+            entry_path = os.path.join(folder, entry)
+            try:
+                age = now - os.path.getmtime(entry_path)
+                if age > CLEANUP_AGE_SECONDS:
+                    if os.path.isdir(entry_path):
+                        shutil.rmtree(entry_path)
+                    else:
+                        os.remove(entry_path)
+            except OSError:
+                pass
 
 
 def allowed_file(filename):
@@ -82,6 +109,7 @@ def index():
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
+        cleanup_old_files()
         if 'file' not in request.files:
             return "No file part", 400
         file = request.files['file']
