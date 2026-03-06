@@ -3,31 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Detection Results</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <title>Results — Vision-Net</title>
+  <link rel="stylesheet" href="/static/style.css" />
 </head>
-<body class="results-page">
+<body>
 
   <!-- Header -->
-  <header class="main-header">
-    <button class="home-icon" onclick="location.href='{{ url_for('upload_file') }}'">🏠</button>
-    <h1>Detection Results</h1>
+  <header class="site-header">
+    <a href="/" class="header-logo">
+      <span class="logo-icon">◎</span>
+      <span>Vision-Net</span>
+    </a>
+    <span class="header-title">Detection Results</span>
+    <nav class="header-nav">
+      <button class="nav-btn" onclick="location.href='/upload'">New Upload</button>
+      <button class="nav-btn" onclick="location.href='/'">Home</button>
+    </nav>
   </header>
 
-  <!-- Results Gallery -->
-  <main class="results-page">
-    {% if images %}
-      <div class="results-grid">
-        {% for image in images %}
-          <div class="result-item">
-            <img src="{{ url_for('serve_prediction_image', folder=folder, filename=image) }}" alt="Prediction" />
-          </div>
-        {% endfor %}
+  <div class="page-content">
+    <div class="results-wrapper">
+
+      <!-- Results Header -->
+      <div class="results-header">
+        <h2>Detection Output</h2>
+        {% if images %}
+          <span class="results-count">{{ images|length }} frame{{ 's' if images|length != 1 else '' }} analyzed</span>
+        {% endif %}
       </div>
-    {% else %}
-      <p>No results to display.</p>
-    {% endif %}
-  </main>
+
+      <!-- Results Grid -->
+      {% if images %}
+        <div class="results-grid">
+          {% for image in images %}
+            <div class="result-card">
+              <img src="{{ url_for('serve_prediction_image', folder=folder, filename=image) }}" alt="Detection result — {{ image }}" loading="lazy" />
+              <div class="result-card-footer">{{ image }}</div>
+            </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <div class="no-results">
+          <span class="no-results-icon">⊘</span>
+          <p>No detection results to display.</p>
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    Vision-Net EO/IR Classification System
+  </footer>
 
 </body>
 </html>
