@@ -15,7 +15,7 @@
 - [How to Run](#how-to-run)
 - [Usage](#usage)
 - [Team](#team)
-- [Links](#links)
+- [Links](#https://github.com/AbhiPatil-02/Vision-Net-EO-IR/blob/main/README.md#-links)
 - [Contributing](#contributing)
 - [Contact](#contact)
 
