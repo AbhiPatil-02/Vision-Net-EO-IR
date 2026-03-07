@@ -130,7 +130,7 @@ The app will start at **http://127.0.0.1:5000**.
 
 - **GitHub Repository**: [github.com/AbhiPatil-02/Vision-net-ir-eo](https://github.com/AbhiPatil-02/Vision-net-ir-eo)
 - **LinkedIn Post**: [HAL AEROTHON Experience](https://www.linkedin.com/posts/abhishek-r-patil_hackathon-machinelearning-artificialintelligence-activity-7372242209074642944-FY49)
-
+- **DEPLOYED PROJECT**: [huggingface-deployment](https://abhipatil02-vision-net-eo-ir.hf.space/)
 ---
 
 ## 🤝 Contributing
