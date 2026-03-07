@@ -7,17 +7,17 @@
 ---
 
 ## 📌 Table of Contents
-- [About the Hackathon](#about-the-hackathon)
-- [Project Overview](#project-overview)
-- [Objective](#objective)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [How to Run](#how-to-run)
-- [Usage](#usage)
-- [Team](#team)
+- [About the Hackathon](#-about-the-hackathon)
+- [Project Overview](#-project-overview)
+- [Objective](#-objective)
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [How to Run](#-how-to-run)
+- [Usage](#-usage)
+- [Team](#-team)
 - [Links](#-links)
-- [Contributing](#contributing)
-- [Contact](#contact)
+- [Contributing](#-contributing)
+- [Contact](#-contact)
 
 ---
 
